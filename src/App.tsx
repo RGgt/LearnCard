@@ -3,13 +3,44 @@ import reactLogo from './assets/react.svg';
 import './App.css';
 import Card from './components/card';
 
+import myData from '../public/decks/experiments/test-001.json';
+
 function App() {
 	const [count, setCount] = useState(0);
 	// const cardAversMd =		' # Title\nlorem **ipsum** *React-Markdown* is **Awesome**';
-	const cardAversMd = `# to be
-	(verb)
-	present time`;
-	const cardReversMd = `This is the **back** of the card`;
+	const cardAversMd_old = `
+
+
+The lift coefficient ($C_L$) is a dimensionless coefficient.
+
+> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+
+[Link][1]
+
+⋮ more text here
+
+[1]: http://b.org
+
+ `;
+	const cardReversMd_old = ` Präsens
+| Syntax        | Description |
+| :---          |       ----: |
+| Ich bin       | Wir sind    |
+| Du bist       | Ihr seid    |
+| Er/Sie/Es ist | Sie sind    |
+
+
+
+[Conjugation verb 'sein' in German](https://conjugator.reverso.net/conjugation-german-verb-sein.html)
+
+(^link)
+
+[^1]: Big note.
+	`;
+
+	const cardAversMd = myData.cards[0].value.avers;
+	let cardReversMd = myData.cards[0].value.reverse;
+	// cardReversMd = cardAversMd_old;
 
 	return (
 		<div className="App">

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import ReactMarkdown from 'react-markdown';
+import MarkdownToHtml from './markdown/markdownToHtml';
 import './card.css';
 
 interface CardViewData {
@@ -29,11 +29,11 @@ function Card(props: CardViewData) {
 					ref={clickableFace!}
 				>
 					<div className="flip-front">
-						<ReactMarkdown>{props.AversMarkdown}</ReactMarkdown>
+						<MarkdownToHtml>{props.AversMarkdown}</MarkdownToHtml>
 					</div>
 					<div className="flip-back">
 						{' '}
-						<ReactMarkdown>{props.ReverseMarkdown}</ReactMarkdown>
+						<MarkdownToHtml>{props.ReverseMarkdown}</MarkdownToHtml>
 					</div>
 				</div>
 			</div>

@@ -7,6 +7,17 @@
 	font-size: 1.2em;
 	line-height: 1.5;
 }
+table,
+th,
+td {
+	border: 1px dotted red;
+	border-collapse: collapse;
+	padding: 10px;
+}
+th,
+td {
+	background-color: #96d4d4;
+}
 .flip {
 	width: 450px;
 	height: 300px;
