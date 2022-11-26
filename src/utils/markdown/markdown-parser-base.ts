@@ -8,6 +8,9 @@ import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import rehypeHighlight from 'rehype-highlight';
 import remarkToRehype from 'remark-rehype';
 import 'katex/dist/katex.min.css';
+import 'highlight.js/styles/vs2015.css'
+// light
+// import 'highlight.js/styles/vs.css'
 
 export abstract class MarkdownParser {
 
