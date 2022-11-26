@@ -7,7 +7,7 @@ import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import rehypeHighlight from 'rehype-highlight';
 import remarkToRehype from 'remark-rehype';
-
+import 'katex/dist/katex.min.css';
 
 export abstract class MarkdownParser {
 

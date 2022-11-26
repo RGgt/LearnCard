@@ -1,7 +1,5 @@
 import { MarkdownParser } from '../../utils/markdown/markdown-parser';
 import React, { useEffect, useState } from 'react';
-// I could import katex css directly here instead of adding it to index.html...
-// import 'katex/dist/katex.min.css';
 
 const MarkdownToHtml: React.FC<{ children: string }> = props => {
 	const [data, setData] = useState('loading text...');
