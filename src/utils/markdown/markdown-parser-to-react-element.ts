@@ -3,13 +3,13 @@ import { Processor } from 'unified';
 import rehypeToReact from 'rehype-react';
 import { ReactElement } from 'rehype-react/lib';
 import { MarkdownParser } from './markdown-parser-base';
-export class MarkdownParserReact extends MarkdownParser {
 
+export class MarkdownParserReact extends MarkdownParser {
   protected static serializeTreeAsReactElement(processor: Processor) {
     return processor.use(rehypeToReact, {
       createElement: React.createElement,
-      Fragment: React.Fragment
-    })
+      Fragment: React.Fragment,
+    });
   }
 
   static Parse = async (input: string): Promise<ReactElement> => {
@@ -23,7 +23,7 @@ export class MarkdownParserReact extends MarkdownParser {
     processor = MarkdownParser.allowHtmlKatexFormula(processor);
     processor = MarkdownParser.allowCodeSyntaxHighlightInHtml(processor);
     processor = MarkdownParserReact.serializeTreeAsReactElement(processor);
-    let result = await MarkdownParser.processInputAsync(processor, input);
+    const result = await MarkdownParser.processInputAsync(processor, input);
     return result.result as ReactElement;
-  }
+  };
 }

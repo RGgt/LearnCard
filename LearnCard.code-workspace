@@ -10,6 +10,12 @@
 			"titleBar.activeBackground": "#770737",
 			"statusBar.background": "#770737"
 		},
+		"files.associations": {
+			"*.css": "tailwindcss"
+		},
+		"emmet.includeLanguages": {
+			"postcss": "css"
+		},
 		"files.trimTrailingWhitespace": true,
 		"editor.tabSize": 2,
 		"files.insertFinalNewline": true,

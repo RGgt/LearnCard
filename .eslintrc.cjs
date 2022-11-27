@@ -25,5 +25,6 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'import/prefer-default-export': 0,
     'prettier/prettier': 'error',
+    'react/destructuring-assignment': 1,
   },
 };

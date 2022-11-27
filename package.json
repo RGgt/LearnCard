@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/RGgt/LearnCard#readme",
   "dependencies": {
+    "highlight.js": "^11.7.0",
+    "katex": "^0.16.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
@@ -32,7 +34,10 @@
     "rehype-sanitize": "^5.0.1",
     "rehype-stringify": "^9.0.3",
     "remark-gfm": "^3.0.1",
-    "remark-math": "^5.1.1"
+    "remark-math": "^5.1.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "unified": "^10.1.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",

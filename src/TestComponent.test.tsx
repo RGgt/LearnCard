@@ -23,11 +23,11 @@ describe('Testing something else', () => {
     // Assess
     expect(3 + 5).toBe(8);
   });
-  it('5+5=11', () => {
+  it('5+5=10', () => {
     // Arrange
     // Act
     render(<TestComponent />);
     // Assess
-    expect(5 + 5).toBe(11);
+    expect(5 + 5).toBe(10);
   });
 });
