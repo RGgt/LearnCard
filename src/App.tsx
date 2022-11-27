@@ -48,6 +48,9 @@ The lift coefficient ($C_L$) is a dimensionless coefficient.
 
   return (
     <div className="App">
+      <h1 className="bg-sly-700 border-l-teal-100 text-3xl   font-bold underline  ">
+        Hello world!
+      </h1>
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src="/vite.svg" className="logo" alt="Vite logo" />

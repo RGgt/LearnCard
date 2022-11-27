@@ -25,6 +25,8 @@
     ".eslintrc.cjs",
     ".prettierrc.cjs",
     "vite.config.ts",
+    "tailwind.config.cjs",
+    "postcss.config.cjs",
   ],
   "references": [
     {
