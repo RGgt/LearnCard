@@ -10,6 +10,8 @@ import myData from '../public/decks/experiments/test-001.json';
 function App() {
   const [count, setCount] = useState(0);
   // const cardAversMd = ' # Title\nlorem **ipsum** *React-Markdown* is **Awesome**';
+  // @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   const cardAversMd_old = `
 
 
@@ -57,16 +59,10 @@ The lift coefficient ($C_L$) is a dimensionless coefficient.
       <h1>Vite + React</h1>
       <div className="card">
         <button type="button" onClick={() => setCount((cnt) => cnt + 1)}>
-          count is
-          {' '}
-          {count}
+          count is {count}
         </button>
         <p>
-          Edit
-          {' '}
-          <code>src/App.tsx</code>
-          {' '}
-          and save to test HMR
+          Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">
