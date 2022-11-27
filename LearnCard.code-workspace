@@ -21,6 +21,6 @@
 			"Katex",
 			"rehype"
 		],
-		"editor.formatOnSave": false,
+		"editor.formatOnSave": true,
 	}
 }
