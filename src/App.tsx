@@ -1,81 +1,63 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */ // <== as i am having some test code here.
-/* eslint-disable @typescript-eslint/naming-convention */ // <== as i am having some test code here.
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
+import { useEffect } from 'react';
+import { themeChange } from 'theme-change';
+
 import './App.css';
-import Card from './components/card';
 
-import myData from '../public/decks/experiments/test-001.json';
-
-function App() {
-  const [count, setCount] = useState(0);
-  // const cardAversMd = ' # Title\nlorem **ipsum** *React-Markdown* is **Awesome**';
-  // @typescript-eslint/no-unused-vars
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  const cardAversMd_old = `
-
-
-The lift coefficient ($C_L$) is a dimensionless coefficient.
-
-> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
-
-[Link][1]
-
-⋮ more text here
-
-[1]: http://b.org
-
- `;
-  const cardReversMd_old = ` Präsens
-| Syntax        | Description |
-| :---          |       ----: |
-| Ich bin       | Wir sind    |
-| Du bist       | Ihr seid    |
-| Er/Sie/Es ist | Sie sind    |
-
-
-
-[Conjugation verb 'sein' in German](https://conjugator.reverso.net/conjugation-german-verb-sein.html)
-
-(^link)
-
-[^1]: Big note.
-`;
-
-  const cardAversMd = myData.cards[0].value.avers;
-  const cardReversMd = myData.cards[0].value.reverse;
-  // cardReversMd = cardAversMd_old;
-
+export default function App() {
+  useEffect(() => {
+    themeChange(false);
+  }, []);
   return (
-    <div className="App">
-      <h1 className="bg-sly-700  border-l-teal-100  text-3xl font-bold underline   ">
-        Hello world!
-      </h1>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App ">
+      <select className="gradientselect" data-choose-theme>
+        <option disabled value="">
+          Pick a theme
+        </option>
+        <option value="">Default</option>
+        <option value="light">Light</option>
+        <option value="dark">dark</option>
+        <option value="cupcake">cupcake</option>
+        <option value="bumblebee">bumblebee</option>
+        <option value="emerald">emerald</option>
+        <option value="corporate">corporate</option>
+        <option value="synthwave">synthwave</option>
+        <option value="cyberpunk">cyberpunk</option>
+        <option value="valentine">valentine</option>
+        <option value="halloween">halloween</option>
+        <option value="garden">garden</option>
+        <option value="forest">forest</option>
+        <option value="aqua">aqua</option>
+        <option value="lofi">lofi</option>
+        <option value="pastel">pastel</option>
+        <option value="fantasy">fantasy</option>
+        <option value="wireframe">wireframe</option>
+        <option value="luxury">luxury</option>
+        <option value="dracula">dracula</option>
+        <option value="cmyk">cmyk</option>
+        <option value="autumn">autumn</option>
+        <option value="business">business</option>
+        <option value="acid">acid</option>
+        <option value="lemonade">lemonade</option>
+        <option value="night">night</option>
+        <option value="coffee">coffee</option>
+        <option value="winter">winter</option>
+      </select>
+      <div className="dropdown">
+        <label tabIndex={0} className="btn m-1">
+          Click
+        </label>
+        <ul
+          tabIndex={0}
+          className="dropdown-content menu rounded-box w-52 bg-base-100 p-2 shadow"
+        >
+          <li>
+            <a>Item 1</a>
+          </li>
+          <li>
+            <a>Item 2</a>
+          </li>
+        </ul>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button type="button" onClick={() => setCount((cnt) => cnt + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <Card AversMarkdown={cardAversMd} ReverseMarkdown={cardReversMd} />
-      {/* <img src="https://www.fillmurray.com/150/150" /> */}
-      {/* <strong>BILL MURRAY</strong> */}
     </div>
   );
 }
-
-export default App;
