@@ -1,12 +1,12 @@
 import { Processor } from 'unified';
 import rehypeStringify from 'rehype-stringify';
-import { MarkdownParser } from './markdown-parser-base';
-export class MarkdownParserString extends MarkdownParser {
 
+import { MarkdownParser } from './markdown-parser-base';
+
+export class MarkdownParserString extends MarkdownParser {
   protected static serializeTreeAsString(processor: Processor) {
     return processor.use(rehypeStringify, { allowDangerousHtml: false });
   }
-
 
   static Parse = async (input: string): Promise<string> => {
     let processor = MarkdownParser.createTreeProcessor();
@@ -19,7 +19,7 @@ export class MarkdownParserString extends MarkdownParser {
     processor = MarkdownParser.allowHtmlKatexFormula(processor);
     processor = MarkdownParser.allowCodeSyntaxHighlightInHtml(processor);
     processor = MarkdownParserString.serializeTreeAsString(processor);
-    let result = await MarkdownParser.processInputAsync(processor, input);
+    const result = await MarkdownParser.processInputAsync(processor, input);
     return String(result);
-  }
+  };
 }
