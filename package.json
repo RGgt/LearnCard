@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/RGgt/LearnCard#readme",
   "dependencies": {
+    "axion": "^0.1.0",
     "highlight.js": "^11.7.0",
     "katex": "^0.16.3",
     "localforage": "^1.10.0",

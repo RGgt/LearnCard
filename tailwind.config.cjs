@@ -18,4 +18,9 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('daisyui'),
   ],
+  daisyui: {
+    styled: true,
+    base: true,
+    themes: false,
+  },
 };

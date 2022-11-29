@@ -24,6 +24,7 @@
 			"LICENSE": true,
 		},
 		"cSpell.words": [
+			"daisyui",
 			"Katex",
 			"rehype",
 			"tailwindcss"

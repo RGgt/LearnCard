@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export function Tests() {
+export function ExperimentalPage() {
   return (
     <>
       {/* <div class="w-80 bg-purple-300">Centered using Tailwind Grid</div>
