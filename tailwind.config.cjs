@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
@@ -10,11 +11,11 @@ module.exports = {
   },
 
   plugins: [
-    require("@tailwindcss/typography"),
+    require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
-    require("daisyui"),
+    require('daisyui'),
   ],
   // daisyUI config (optional)
   daisyui: {
@@ -24,9 +25,7 @@ module.exports = {
     utils: true,
     logs: true,
     rtl: false,
-    prefix: "",
+    prefix: '',
     // themes: ["light", "dark", "cupcake", "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade", "night", "coffee", "winter"],
-
-    darkTheme: "forest",
   },
 };
