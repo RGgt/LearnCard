@@ -1,6 +1,9 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { describe, it } from 'vitest';
 
+import { App } from '../app/App';
+import { WrappedApp } from '../app/WrappedApp';
 import { TestComponent } from './TestComponent';
 
 describe('Testing the TestComponent', () => {
@@ -14,7 +17,27 @@ describe('Testing the TestComponent', () => {
     );
   });
 });
-
+describe('Testing the App', () => {
+  it('Renders hello world', () => {
+    // Arrange
+    // Act
+    render(<WrappedApp />);
+    // Assess
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
+      'Hello world!',
+    );
+  });
+  it('Renders Not-Found if invalid path', () => {
+    render(
+      <MemoryRouter initialEntries={['/page-that-does-not-exist']}>
+        <App />
+      </MemoryRouter>,
+    );
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
+      'Content not found',
+    );
+  });
+});
 describe('Testing something else', () => {
   it('3+5=8', () => {
     // Arrange
