@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ThemeChanger } from '../components/ThemeChanger';
 
 export function Home() {
@@ -5,6 +6,9 @@ export function Home() {
     <>
       <ThemeChanger />
       <h1>Hello world</h1>
+      <Link to="/">GO HOME</Link>
+      <br />
+      <Link to="/tests">TESTS</Link>
     </>
   );
 }
