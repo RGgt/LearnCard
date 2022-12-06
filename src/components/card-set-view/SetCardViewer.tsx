@@ -1,12 +1,17 @@
-import { useRef, useState } from 'react';
-import MarkdownToHtml from '../markdown/markdownToHtml';
-import { CardViewer } from './CardViewer';
+import { useState } from 'react';
+import { CardView } from '../card-view/CardView';
+import { ErrorView } from '../card-view/ErrorView';
 
-interface HandSliderProps {
+interface SetCardViewerProps {
   allCards: HandCardData[];
   allScores: HandScoreData[];
   onScoringCompleted: () => void;
+  onScoringProgress: (event: ScoringProgressEvent) => void;
 }
+interface ScoringProgressEvent {
+  percent: number;
+}
+
 interface HandCardData {
   cardId: string;
   avers: string;
@@ -16,8 +21,8 @@ interface HandScoreData {
   cardId: string;
   score: number;
 }
-export function HandSlider(props: HandSliderProps) {
-  const { allCards, allScores, onScoringCompleted } = props;
+export function SetCardViewer(props: SetCardViewerProps) {
+  const { allCards, allScores, onScoringCompleted, onScoringProgress } = props;
   const defaultCardId = allScores[0].cardId;
   const [crtCardId, setCardId] = useState<string>(defaultCardId);
 
@@ -34,19 +39,27 @@ export function HandSlider(props: HandSliderProps) {
       onScoringCompleted();
     } else {
       setCardId(allScores[index + 1].cardId);
+      const scoredCards = allScores.reduce(
+        (total, e) => (e.score === -1 ? total : total + 1),
+        0,
+      );
+      const percentCardsDisplayed = Math.round(
+        (100 * scoredCards) / allCards.length,
+      );
+      onScoringProgress({ percent: percentCardsDisplayed });
     }
   };
 
-  if (!crtCardId) return <p>oups</p>;
+  if (!crtCardId) return <ErrorView error={new Error('No card specified!')} />;
   const card = allCards.find((x) => x.cardId === crtCardId);
-  if (!card) return <p>oups</p>;
+  if (!card) return <ErrorView error={new Error('Card ot found!')} />;
   const cardWScore = allScores.find((x) => x.cardId === crtCardId);
   let cardScore = 0;
   if (cardWScore) cardScore = cardWScore.score;
 
   return (
     <>
-      <CardViewer
+      <CardView
         cardId={crtCardId}
         key={crtCardId}
         avers={card.avers}
@@ -55,34 +68,5 @@ export function HandSlider(props: HandSliderProps) {
         onCardRated={onCardRated}
       />
     </>
-    // <p className=" bg-yellow-400 ">
-    //   Card ID: {crtCardId}
-    //   <br />
-    //   <button
-    //     className="btn-primary btn"
-    //     type="button"
-    //     onClick={() => {
-    //       if (crtCardId) onCardRated(crtCardId, 1);
-    //     }}
-    //   >
-    //     Mastered Perfectly
-    //   </button>
-    //   <br />
-    //   <button
-    //     className="btn-secondary btn"
-    //     type="button"
-    //     onClick={() => {
-    //       if (crtCardId) onCardRated(crtCardId, 0);
-    //     }}
-    //   >
-    //     Not Mastered Yet
-    //   </button>
-    //   <br />
-    //   Question:{' '}
-    //   {crtCardId && allCards.find((x) => x.cardId === crtCardId)?.avers}
-    //   <br />
-    //   Answer:{' '}
-    //   {crtCardId && allCards.find((x) => x.cardId === crtCardId)?.revers}
-    // </p>
   );
 }
