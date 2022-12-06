@@ -16,7 +16,8 @@ export function HomePage() {
         View set B
       </Link>
       <br />
-      <Link to="/tests">TESTS</Link>
+      <Link to="/tests">TESTS</Link> <br />
+      <Link to="/experimental">ExperimentalPage</Link>
     </>
   );
 }
