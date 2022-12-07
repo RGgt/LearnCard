@@ -1,16 +1,21 @@
 import { Routes, Route } from 'react-router-dom';
 
-import { Home } from '../pages/Home';
-import { Tests } from '../pages/Test';
-import { NotFound } from '../pages/NotFound';
+import { HomePage } from '../pages/HomePage';
+import { ExperimentalPage } from '../pages/ExperimentalPage';
+import { NotFoundPage } from '../pages/NotFoundPage';
 import './App.css';
+import { CardSetViewPage } from '../pages/CardSetViewPage';
 
 export function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/tests" element={<Tests />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="/" element={<HomePage />} />
+      <Route
+        path="/cards/:topic/:collection/:hand"
+        element={<CardSetViewPage />}
+      />
+      <Route path="/experimental" element={<ExperimentalPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

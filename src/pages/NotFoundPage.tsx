@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export function NotFound() {
+export function NotFoundPage() {
   return (
     <>
       {' '}
