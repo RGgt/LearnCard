@@ -12,8 +12,8 @@ export function HomePage() {
         View set A
       </Link>
       <br />
-      <Link to="/cards/spanish-for-english/verbs-level-1/set-001">
-        View set B
+      <Link to="/cards/spanish-for-english/verbs-level-1/set-001x">
+        View set B* will error
       </Link>
       <br />
       <Link to="/tests">TESTS</Link> <br />
