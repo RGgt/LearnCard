@@ -1,5 +1,6 @@
 import { ProcessingProgress } from '../hand-viewer-page/ProcessingProgress';
 import { CancelButton } from '../hand-viewer-page/CancelButton';
+import { CardErrorView } from '../card-view/CardErrorView';
 
 export function CardSetErrorView(props: CardSetErrorViewProps) {
   const { error, onClosing, progress } = props;
@@ -17,15 +18,7 @@ export function CardSetErrorView(props: CardSetErrorViewProps) {
       </div>
       <div className="flex flex-1 items-center justify-center bg-slate-700">
         <div className="flex h-2/3 w-2/3 items-center justify-center rounded-2xl bg-slate-700  shadow-lg">
-          {/* <CardView
-                cardData={crtCardData}
-                rateCard={rateCard}
-                key={crtCardId}
-                prevScore={crtCardScore}
-              /> */}
-          <p>
-            Error: <strong>{error.message}</strong>
-          </p>
+          <CardErrorView error={error} />
         </div>
       </div>
     </div>

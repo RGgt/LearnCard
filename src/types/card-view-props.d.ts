@@ -13,13 +13,31 @@ interface CardViewProps {
   prevScore: number;
   rateCard: (cardId: string, rating: number) => void;
 }
+interface CardErrorViewProps {
+  error: Error;
+}
 interface CardReverseProps {
   cardId: string;
   revers: string;
   score: number;
+  showRating: boolean;
+  showFlipCard: boolean;
   onCardRated: (ratedCardId: string, rating: number) => void;
   toggleFlipped: () => void;
 }
+interface CardOptionsAreaProps {
+  cardId: string;
+  showRating: boolean;
+  showFlipCard: boolean;
+  onCardRated: (ratedCardId: string, rating: number) => void;
+  toggleFlipped: () => void;
+}
+interface CardOptionAreaButtonProps {
+  onClick: () => void;
+  handleKeyPress: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  visible: boolean;
+}
+
 interface CardAversProps {
   cardId: string;
   avers: string;
