@@ -3,7 +3,7 @@ import { CardReverse } from './CardReverse';
 import { CardAversError } from './CardAversError';
 import './CardView.css';
 
-export function CardErrorView(props: CardErrorViewProps) {
+export function CardViewError(props: CardViewErrorProps) {
   const { error } = props;
   const clickableFace = useRef<HTMLInputElement>(null);
   let flipped = false;

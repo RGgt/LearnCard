@@ -1,3 +1,10 @@
+interface CancelButtonProps {
+  // callback: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  callback: () => void;
+}
+interface ProgressBarProps {
+  percent: number;
+}
 interface CardSetViewProps {
   topicId: string;
   collectionId: string;
@@ -13,7 +20,7 @@ interface CardViewProps {
   prevScore: number;
   rateCard: (cardId: string, rating: number) => void;
 }
-interface CardErrorViewProps {
+interface CardViewErrorProps {
   error: Error;
 }
 interface CardReverseProps {
@@ -43,7 +50,7 @@ interface CardAversProps {
   avers: string;
   toggleFlipped: () => void;
 }
-interface CardSetErrorViewProps {
+interface CardSetViewErrorProps {
   onClosing: () => void;
   error: Error;
   progress: number;

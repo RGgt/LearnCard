@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 
-import { ProcessingProgress } from '../hand-viewer-page/ProcessingProgress';
-import { CancelButton } from '../hand-viewer-page/CancelButton';
+import { ProgressBar } from '../common/ProgressBar';
+import { CancelButton } from '../common/CancelButton';
 import { CardView } from '../card-view/CardView';
 
 export function CardSetView(props: CardSetViewProps) {
@@ -54,7 +54,7 @@ export function CardSetView(props: CardSetViewProps) {
   // const printDebug = () => {
   //   return (
   //     <>
-  //       <ProcessingProgress progressPercent={progress} />
+  //       <ProgressBar percent={progress} />
   //       <p>myKey: {myKey}</p>
   //       <p>topicId: {topicId}</p>
   //       <p>collectionId: {collectionId}</p>
@@ -84,7 +84,7 @@ export function CardSetView(props: CardSetViewProps) {
             <CancelButton callback={onClosing} />
           </div>
           <div className="flex w-full items-center justify-end bg-slate-700 pl-8">
-            <ProcessingProgress progressPercent={progress} />
+            <ProgressBar percent={progress} />
           </div>
         </div>
       </div>

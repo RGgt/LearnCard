@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, it } from 'vitest';
 
-import { App } from '../app/App';
+import { App } from '../app/AppRoutes';
 import { WrappedApp } from '../app/WrappedApp';
 import { TestComponent } from './TestComponent';
 

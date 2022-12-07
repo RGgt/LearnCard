@@ -1,10 +1,26 @@
-interface CancelButtonProps {
-  callback: (event: React.MouseEvent<HTMLButtonElement>) => void;
-}
+import React from 'react';
+
 export function CancelButton(props: CancelButtonProps) {
   const { callback } = props;
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Esc') {
+      callback();
+      return;
+    }
+  };
+  const onClick = () => {
+    callback();
+  };
+
   return (
-    <button type="button" onClick={callback} className="p-0">
+    <div
+      role="button"
+      onClick={onClick}
+      onKeyPress={handleKeyPress}
+      className="btn-ghost btn-square btn h-12 w-12"
+      tabIndex={0}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -19,6 +35,6 @@ export function CancelButton(props: CancelButtonProps) {
           d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
         />
       </svg>
-    </button>
+    </div>
   );
 }

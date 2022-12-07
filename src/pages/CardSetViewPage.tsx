@@ -1,9 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import _ from 'lodash';
 
-import { CardSetErrorView } from '../components/card-set-view/CardSetErrorView';
+import { CardSetViewError } from '../components/card-set-view/CardSetViewError';
 import useFetch from '../hooks/useFetch';
-import { LoadingSkeleton } from '../components/card-set-view/LoadingSkeleton';
+import { CardSetViewSkeleton } from '../components/card-set-view/CardSetViewSkeleton';
 import { CardSetView } from '../components/card-set-view/CardSetView';
 
 const getErrorView = (
@@ -12,11 +12,11 @@ const getErrorView = (
   progress: number,
 ) => {
   return (
-    <CardSetErrorView error={error} onClosing={onClosing} progress={progress} />
+    <CardSetViewError error={error} onClosing={onClosing} progress={progress} />
   );
 };
 const getLoadingView = () => {
-  return <LoadingSkeleton />;
+  return <CardSetViewSkeleton />;
 };
 const getCardSetView = (
   key: string,
