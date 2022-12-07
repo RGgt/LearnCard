@@ -44,6 +44,7 @@ const getCardSetView = (
 };
 
 export function CardSetViewPage() {
+  const navigate = useNavigate();
   const onClosing = () => {
     navigate('/');
   };
@@ -55,15 +56,11 @@ export function CardSetViewPage() {
     topic: topicId,
     collection: collectionId,
     hand: handId,
-  } = useParams();
-
-  if (!topicId || !collectionId || !handId)
-    return getErrorView(new Error('Missing path segments!'), onClosing, 0);
-
-  const navigate = useNavigate();
+  } = useParams() as { topic: string; collection: string; hand: string };
 
   const FETCH_URL = `decks/${topicId}/${collectionId}/${handId}.json`;
   const { data, error } = useFetch<HandCardData[]>(FETCH_URL);
+
   if (error) return getErrorView(error, onClosing, 0);
   if (!data) return getLoadingView();
   if (!data || !data.length)
