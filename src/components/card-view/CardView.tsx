@@ -1,21 +1,14 @@
 import { useRef } from 'react';
-import { CardAvers } from './CardAvers';
 import { CardReverse } from './CardReverse';
+import { CardAvers } from './CardAvers';
 import './CardView.css';
 
-interface CardViewProps {
-  cardId: string;
-  avers: string;
-  revers: string;
-  score: number;
-  onCardRated: (ratedCardId: string, rating: number) => void;
-}
-
 export function CardView(props: CardViewProps) {
-  const { cardId, avers, revers, score, onCardRated } = props;
+  const { cardData, prevScore, rateCard } = props;
   const clickableFace = useRef<HTMLInputElement>(null);
   let flipped = false;
   const toggleFlipped = () => {
+    console.log('toggleFlipped');
     const element = clickableFace.current;
     if (!element) return;
     if (flipped) {
@@ -26,29 +19,27 @@ export function CardView(props: CardViewProps) {
       flipped = true;
     }
   };
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      toggleFlipped();
-    }
-  };
 
   return (
     <>
       <div className="card-typography perspective-100vw h-full w-full flex-1  overflow-hidden ">
         <div
-          className="flip-content h-full w-full"
+          className="flip-content relative h-full w-full"
           role="button"
-          onClick={toggleFlipped}
           tabIndex={0}
-          onKeyPress={handleKeyPress}
           ref={clickableFace}
         >
-          <CardAvers cardId={cardId} avers={avers} />
+          <CardAvers
+            cardId={cardData.cardId}
+            avers={cardData.avers}
+            toggleFlipped={toggleFlipped}
+          />
           <CardReverse
-            cardId={cardId}
-            revers={revers}
-            score={score}
-            onCardRated={onCardRated}
+            cardId={cardData.cardId}
+            revers={cardData.revers}
+            score={prevScore}
+            onCardRated={rateCard}
+            toggleFlipped={toggleFlipped}
           />
         </div>
       </div>

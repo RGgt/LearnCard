@@ -4,7 +4,7 @@ import { HomePage } from '../pages/HomePage';
 import { ExperimentalPage } from '../pages/ExperimentalPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import './App.css';
-import { HandViewerPage } from '../pages/HandViewerPage';
+import { CardSetViewPage } from '../pages/CardSetViewPage';
 
 export function App() {
   return (
@@ -12,7 +12,7 @@ export function App() {
       <Route path="/" element={<HomePage />} />
       <Route
         path="/cards/:topic/:collection/:hand"
-        element={<HandViewerPage />}
+        element={<CardSetViewPage />}
       />
       <Route path="/experimental" element={<ExperimentalPage />} />
       <Route path="*" element={<NotFoundPage />} />
