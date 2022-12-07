@@ -1,5 +1,6 @@
-import { ProcessingProgress } from '../../components/hand-viewer-page/ProcessingProgress';
-import { CancelButton } from '../../components/hand-viewer-page/CancelButton';
+import { ProcessingProgress } from '../hand-viewer-page/ProcessingProgress';
+import { CancelButton } from '../hand-viewer-page/CancelButton';
+
 export function CardSetErrorView(props: CardSetErrorViewProps) {
   const { error, onClosing, progress } = props;
   return (

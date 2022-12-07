@@ -8,7 +8,6 @@ export function CardView(props: CardViewProps) {
   const clickableFace = useRef<HTMLInputElement>(null);
   let flipped = false;
   const toggleFlipped = () => {
-    console.log('toggleFlipped');
     const element = clickableFace.current;
     if (!element) return;
     if (flipped) {
@@ -21,28 +20,26 @@ export function CardView(props: CardViewProps) {
   };
 
   return (
-    <>
-      <div className="card-typography perspective-100vw h-full w-full flex-1  overflow-hidden ">
-        <div
-          className="flip-content relative h-full w-full"
-          role="button"
-          tabIndex={0}
-          ref={clickableFace}
-        >
-          <CardAvers
-            cardId={cardData.cardId}
-            avers={cardData.avers}
-            toggleFlipped={toggleFlipped}
-          />
-          <CardReverse
-            cardId={cardData.cardId}
-            revers={cardData.revers}
-            score={prevScore}
-            onCardRated={rateCard}
-            toggleFlipped={toggleFlipped}
-          />
-        </div>
+    <div className="card-typography perspective-100vw h-full w-full flex-1  overflow-hidden ">
+      <div
+        className="flip-content relative h-full w-full"
+        role="button"
+        tabIndex={0}
+        ref={clickableFace}
+      >
+        <CardAvers
+          cardId={cardData.cardId}
+          avers={cardData.avers}
+          toggleFlipped={toggleFlipped}
+        />
+        <CardReverse
+          cardId={cardData.cardId}
+          revers={cardData.revers}
+          score={prevScore}
+          onCardRated={rateCard}
+          toggleFlipped={toggleFlipped}
+        />
       </div>
-    </>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import MarkdownToHtml from '../../components/markdown/markdownToHtml';
+import MarkdownToHtml from '../markdown/markdownToHtml';
 import './CardAvers.css';
 
 export function CardAvers(props: CardAversProps) {
@@ -11,6 +11,8 @@ export function CardAvers(props: CardAversProps) {
 
   return (
     <div
+      role="button"
+      tabIndex={0}
       key={cardId}
       className="absolute m-auto flex h-full w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-t from-blue-700 to-blue-500 p-0 text-center text-slate-100 shadow-lg backface-hidden"
       onClick={toggleFlipped}

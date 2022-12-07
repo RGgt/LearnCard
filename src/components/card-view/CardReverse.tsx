@@ -1,4 +1,4 @@
-import MarkdownToHtml from '../../components/markdown/markdownToHtml';
+import MarkdownToHtml from '../markdown/markdownToHtml';
 import './CardReverse.css';
 
 export function CardReverse(props: CardReverseProps) {
@@ -51,7 +51,9 @@ export function CardReverse(props: CardReverseProps) {
             onClick={onRed}
             onKeyPress={handleKeyPress}
             tabIndex={0}
-          ></div>
+          >
+            &nbsp;
+          </div>
         </div>
         <div className="absolute bottom-3.5 z-20 h-20 w-full -translate-x-8 transform">
           <div
