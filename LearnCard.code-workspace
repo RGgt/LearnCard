@@ -30,5 +30,7 @@
 			"tailwindcss"
 		],
 		"editor.formatOnSave": true,
+		"editor.fontSize": 12,
+		"editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
 	}
 }
