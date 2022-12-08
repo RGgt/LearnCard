@@ -1,10 +1,10 @@
 import { useRef } from 'react';
 import { CardReverse } from './CardReverse';
-import { CardAvers } from './CardAvers';
+import { CardAversError } from './CardAversError';
 import './CardView.css';
 
-export function CardView(props: CardViewProps) {
-  const { cardData, prevScore, rateCard } = props;
+export function CardViewError(props: CardViewErrorProps) {
+  const { error } = props;
   const clickableFace = useRef<HTMLInputElement>(null);
   let flipped = false;
   const toggleFlipped = () => {
@@ -18,27 +18,28 @@ export function CardView(props: CardViewProps) {
       flipped = true;
     }
   };
+  const onCardRated = () => {};
 
   return (
-    <div className="card-typography perspective-100vw h-full w-full flex-1 overflow-hidden ">
+    <div className="card-typography perspective-100vw h-full w-full flex-1  overflow-hidden ">
       <div
         className="flip-content relative h-full w-full"
         role="button"
         tabIndex={0}
         ref={clickableFace}
       >
-        <CardAvers
-          cardId={cardData.cardId}
-          avers={cardData.avers}
+        <CardAversError
+          cardId="ERROR"
+          avers={error.message}
           toggleFlipped={toggleFlipped}
         />
         <CardReverse
-          cardId={cardData.cardId}
-          revers={cardData.revers}
-          score={prevScore}
-          showRating
+          cardId="ERROR"
+          revers="Click the Close button to return to the deck"
+          score={-1}
+          showRating={false}
           showFlipCard
-          onCardRated={rateCard}
+          onCardRated={onCardRated}
           toggleFlipped={toggleFlipped}
         />
       </div>

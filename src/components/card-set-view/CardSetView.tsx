@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 
-import { ProcessingProgress } from '../../components/hand-viewer-page/ProcessingProgress';
-import { CancelButton } from '../../components/hand-viewer-page/CancelButton';
+import { ProgressBar } from '../common/ProgressBar';
+import { CancelButton } from '../common/CancelButton';
 import { CardView } from '../card-view/CardView';
 
 export function CardSetView(props: CardSetViewProps) {
@@ -54,7 +54,7 @@ export function CardSetView(props: CardSetViewProps) {
   // const printDebug = () => {
   //   return (
   //     <>
-  //       <ProcessingProgress progressPercent={progress} />
+  //       <ProgressBar percent={progress} />
   //       <p>myKey: {myKey}</p>
   //       <p>topicId: {topicId}</p>
   //       <p>collectionId: {collectionId}</p>
@@ -77,29 +77,27 @@ export function CardSetView(props: CardSetViewProps) {
   // };
 
   return (
-    <>
-      <div className="flex h-screen w-screen flex-col bg-slate-700 p-0">
-        <div className="navbar items-center justify-center bg-transparent p-0">
-          <div className="flex w-2/3 flex-row items-center justify-center bg-slate-700 p-0">
-            <div className="flex w-fit items-start justify-start  bg-slate-700 p-0 text-white">
-              <CancelButton callback={onClosing} />
-            </div>
-            <div className="flex w-full items-center justify-end bg-slate-700 pl-8">
-              <ProcessingProgress progressPercent={progress} />
-            </div>
+    <div className="flex h-screen w-screen flex-col bg-slate-700 p-0">
+      <div className="navbar items-center justify-center bg-transparent p-0">
+        <div className="flex w-2/3 flex-row items-center justify-center bg-slate-700 p-0">
+          <div className="flex w-fit items-start justify-start  bg-slate-700 p-0 text-white">
+            <CancelButton callback={onClosing} />
           </div>
-        </div>
-        <div className="flex flex-1 items-center justify-center bg-slate-700">
-          <div className="flex h-2/3 w-2/3 items-center justify-center rounded-2xl bg-slate-700  shadow-lg">
-            <CardView
-              cardData={crtCardData}
-              rateCard={rateCard}
-              key={crtCardId}
-              prevScore={crtCardScore}
-            />
+          <div className="flex w-full items-center justify-end bg-slate-700 pl-8">
+            <ProgressBar percent={progress} />
           </div>
         </div>
       </div>
-    </>
+      <div className="flex flex-1 items-center justify-center bg-slate-700">
+        <div className="flex h-2/3 w-2/3 items-center justify-center rounded-2xl bg-slate-700  shadow-lg">
+          <CardView
+            cardData={crtCardData}
+            rateCard={rateCard}
+            key={crtCardId}
+            prevScore={crtCardScore}
+          />
+        </div>
+      </div>
+    </div>
   );
 }

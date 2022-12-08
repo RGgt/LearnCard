@@ -1,9 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import _ from 'lodash';
 
-import { CardSetErrorView } from '../components/card-set-view/CardSetErrorView';
+import { CardSetViewError } from '../components/card-set-view/CardSetViewError';
 import useFetch from '../hooks/useFetch';
-import { LoadingSkeleton } from '../components/card-set-view/LoadingSkeleton';
+import { CardSetViewSkeleton } from '../components/card-set-view/CardSetViewSkeleton';
 import { CardSetView } from '../components/card-set-view/CardSetView';
 
 const getErrorView = (
@@ -12,11 +12,11 @@ const getErrorView = (
   progress: number,
 ) => {
   return (
-    <CardSetErrorView error={error} onClosing={onClosing} progress={progress} />
+    <CardSetViewError error={error} onClosing={onClosing} progress={progress} />
   );
 };
 const getLoadingView = () => {
-  return <LoadingSkeleton />;
+  return <CardSetViewSkeleton />;
 };
 const getCardSetView = (
   key: string,
@@ -44,6 +44,7 @@ const getCardSetView = (
 };
 
 export function CardSetViewPage() {
+  const navigate = useNavigate();
   const onClosing = () => {
     navigate('/');
   };
@@ -55,15 +56,11 @@ export function CardSetViewPage() {
     topic: topicId,
     collection: collectionId,
     hand: handId,
-  } = useParams();
-
-  if (!topicId || !collectionId || !handId)
-    return getErrorView(new Error('Missing path segments!'), onClosing, 0);
-
-  const navigate = useNavigate();
+  } = useParams() as { topic: string; collection: string; hand: string };
 
   const FETCH_URL = `decks/${topicId}/${collectionId}/${handId}.json`;
   const { data, error } = useFetch<HandCardData[]>(FETCH_URL);
+
   if (error) return getErrorView(error, onClosing, 0);
   if (!data) return getLoadingView();
   if (!data || !data.length)

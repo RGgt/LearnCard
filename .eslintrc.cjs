@@ -23,6 +23,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'react/react-in-jsx-scope': 0,
+    'no-useless-return': 0,
     'import/prefer-default-export': 0,
     'prettier/prettier': 'error',
     'react/destructuring-assignment': 1,
