@@ -89,7 +89,7 @@ export function CardSetView(props: CardSetViewProps) {
         </div>
       </div>
       <div className="flex flex-1 items-center justify-center bg-slate-700">
-        <div className="flex h-2/3 w-2/3 items-center justify-center rounded-2xl bg-slate-700  shadow-lg">
+        <div className="flex h-2/3 w-2/3 items-center justify-center rounded-2xl bg-slate-700 ">
           <CardView
             cardData={crtCardData}
             rateCard={rateCard}
