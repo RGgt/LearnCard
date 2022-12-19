@@ -19,7 +19,7 @@ export function CancelButton(props: CancelButtonProps) {
         role="button"
         onClick={onClick}
         onKeyPress={handleKeyPress}
-        className="btn-ghost  btn-square btn h-12 w-12"
+        className="btn-ghost  btn-square btn h-12 w-12 justify-start md:h-16 md:w-16"
         tabIndex={0}
       >
         <svg
@@ -28,7 +28,7 @@ export function CancelButton(props: CancelButtonProps) {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="h-6 w-6"
+          className="h-4 w-4 md:h-6 md:w-6"
         >
           <path
             strokeLinecap="round"
