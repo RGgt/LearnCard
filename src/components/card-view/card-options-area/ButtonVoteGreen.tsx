@@ -5,7 +5,7 @@ export function ButtonVoteGreen(props: CardOptionAreaButtonProps) {
   if (!visible) return null;
   return (
     <div
-      className="btn-outline btn-success glass btn-circle btn absolute left-3/4 h-16 w-16 shadow-lg shadow-slate-800"
+      className="btn-outline btn-success glass btn-circle btn absolute left-3/4 h-12 w-12 shadow-lg shadow-slate-800 md:h-16 md:w-16"
       role="button"
       onClick={onClick}
       onKeyPress={handleKeyPress}
