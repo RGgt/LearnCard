@@ -6,7 +6,7 @@ import { CardView } from '../card-view/CardView';
 
 export function CardSetView(props: CardSetViewProps) {
   const {
-    // myKey,
+    myKey,
     // topicId,
     // collectionId,
     // handId,
@@ -26,6 +26,8 @@ export function CardSetView(props: CardSetViewProps) {
     realScores.current[index].score = rating;
     if (index + 1 === allScores.length) {
       // finished! we rated the last card!
+      // save progress in session storage
+      sessionStorage.setItem(myKey, JSON.stringify(realScores));
       onCompleted();
     } else {
       // there are more card to rate. let's pick the next
